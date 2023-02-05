@@ -4,7 +4,7 @@ public class Main {
         int cycle;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("Выберите задачу [1-7]: ");
+            System.out.println("Выберите задачу [1-12]: ");
             int numb = in.nextInt();
             if (numb == 1) {
                 System.out.println("Введите x:");
@@ -80,7 +80,6 @@ public class Main {
                         for (int i = 0; i < goda.length; i++) {
                             goda[i] = b;
                             b = b-4;
-
                         }
                         for (int year:goda) {                                                             // 45,41,37,33,29,25,21,17,13,9,5,1
                             if (year == god) {
@@ -135,7 +134,19 @@ public class Main {
 
             } // !r
             if (numb == 6) {
-                System.out.println("CS");
+                System.out.println("Введите день года [1-365]: ");
+                int god = in.nextInt();
+                int ned = god%7;
+                System.out.println(ned);
+                switch (ned) {
+                    case 1 -> System.out.println("Понедельник");
+                    case 2 -> System.out.println("Вторник");
+                    case 3 -> System.out.println("Среда");
+                    case 4 -> System.out.println("Четверг");
+                    case 5 -> System.out.println("Пятница");
+                    case 6 -> System.out.println("Суббота");
+                    case 0 -> System.out.println("Воскресенье");
+                }
             } // CS
             if (numb == 7) {
                 System.out.println("Введите месяц вашего рождения [1-12]: ");
@@ -165,7 +176,6 @@ public class Main {
                 System.out.println("Введите y: ");
                 double y = in.nextDouble();
                 double F = Math.sqrt(2+Math.pow(y,2)+(Math.pow(Math.sin(y+5),1.0/7)))/(Math.log(x+1)-Math.pow(y,3));
-                System.out.printf("F = %f", F);
             } // !r
             if (numb == 11) {
                 System.out.println("Введите a(!= 0): ");
@@ -221,7 +231,7 @@ public class Main {
                 }
             } // !r
             /*
-            8/11
+            2,7,9
             */
             System.out.print(" Вы хотите выйти? [1] - Да, [2] - Нет \n");
             cycle = in.nextInt();
