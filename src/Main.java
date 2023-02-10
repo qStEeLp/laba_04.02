@@ -25,27 +25,46 @@ public class Main {
                 }
             } // !r
             if (numb == 2) {
-                System.out.println("Введите время начала разговора (от 0 до 24 часов)");
+                System.out.println("Введите время начала разговора (от 0 до 23 часов)");
                 double t = in.nextDouble();
+                System.out.println("Введите минуту часа начала разговора (от 0 до 59)");
+                double mt = in.nextDouble();
                 System.out.println("Введите продолжительность разговора в минутах");
                 double dt = in.nextDouble();
                 System.out.println("Введите стоимость минуты разговора");
                 double s = in.nextDouble();
                 System.out.println("Введите день недели (от 1 до 7)");
                 int d = in.nextInt();
-                double pr = s / 100 * 20;
-                double pr1 = s / 100 * 10;
-                if (t > 8 && t < 22) {
-                    s = s * 1;
-                } else {
-                    s = s - pr;
+                double sum = 0.0;
+                double minutes = t * 60 + mt;
+                double pr = s / 100 * 20; // 20%
+                double pr1 = s / 100 * 10; // 10%
+                for (int i = 0; i < dt; i++) {
+                    System.out.println(sum);
+                    minutes++;
+                    if (minutes == 24 * 60) {
+                        ++d;
+                        minutes = 0;
+                        if (d > 7) {
+                            d = 1;
+                        }
+                    }
+                    if ((d == 6) | (d == 7)) {
+                        if ((minutes > 21 * 60) | (minutes < 8 * 60)) {
+                            sum = sum + s - pr - pr1;
+                        } else {
+                            sum = sum + s - pr1;
+                        }
+                    } else {
+                        if ((minutes > 21 * 60) | (minutes < 8 * 60)) {
+                            sum = sum + s - pr;
+                        } else {
+                            sum = sum + s;
+                        }
+                    }
                 }
-                if (d == 6 || d == 7) {
-                    s = s - pr1;
-                }
-                double sum = dt * s;
-                System.out.printf("Стоимость переговоров = %f", sum);
-            } // неправильно
+                System.out.printf("Стоимость разговора = %f", sum);
+            }// !r
             if (numb == 3) {
                 System.out.println("Введите числа A,B,C");
                 int A = in.nextInt();
@@ -147,14 +166,89 @@ public class Main {
                     case 6 -> System.out.println("Суббота");
                     case 0 -> System.out.println("Воскресенье");
                 }
-            } // CS
+            } // !r
             if (numb == 7) {
-                System.out.println("Введите месяц вашего рождения [1-12]: ");
+                System.out.println("Введите месяц вашего рождения: ");
                 int month = in.nextInt();
-                System.out.println("Введите день вашего рождения [1-31]");
+                System.out.println("Введите день вашего рождения:");
                 int day = in.nextInt();
-
-            } // CS
+                switch (month) {
+                    case 1:
+                        if (day <= 20 ) {
+                            System.out.println("Вы - Козерог");
+                        } else {
+                            System.out.println("Вы - Водолей");
+                        }
+                        break;
+                    case 2:
+                        if (day <= 18) {
+                            System.out.println("Водолей");
+                        } else {
+                            System.out.println("Вы - Рыбы");
+                        }
+                        break;
+                    case 3:
+                        if (day <= 20) {
+                            System.out.println("Вы - Рыбы");
+                        } else {
+                            System.out.println("Вы - Овен");
+                        }
+                        break;
+                    case 4: if (day <= 20) {
+                        System.out.println("Вы - Овен");
+                    } else {
+                        System.out.println("Вы - Телец");
+                    }
+                        break;
+                    case 5: if (day <= 20) {
+                        System.out.println("Вы - Телец");
+                    } else {
+                        System.out.println("Вы - Близнецы");
+                    }
+                        break;
+                    case 6: if (day <= 21) {
+                        System.out.println("Вы - Близнецы");
+                    } else {
+                        System.out.println("Вы - Рак");
+                    }
+                        break;
+                    case 7: if (day <= 21) {
+                        System.out.println("Вы - Рак");
+                    } else {
+                        System.out.println("Вы - Лев!!");
+                    }
+                        break;
+                    case 8: if (day <= 23) {
+                        System.out.println("Вы - Лев!!");
+                    } else {
+                        System.out.println("Вы - Дева");
+                    }
+                        break;
+                    case 9: if (day <= 23) {
+                        System.out.println("Вы - Дева");
+                    } else {
+                        System.out.println("Вы - Весы");
+                    }
+                        break;
+                    case 10: if (day <= 23) {
+                        System.out.println("Вы - Весы");
+                    } else {
+                        System.out.println("Вы - Скорпион");
+                    }
+                        break;
+                    case 11: if (day <= 22) {
+                        System.out.println("Вы = Скорпион");
+                    } else {
+                        System.out.println("Вы - Стрелец");
+                    }
+                        break;
+                    case 12: if (day <= 21) {
+                        System.out.println("Вы - Стрелец");
+                    } else {
+                        System.out.println("Вы - Козерог");
+                    }
+                }
+            } // !r
             if (numb == 8) {
                 double m = 2;
                 double n = 1;
@@ -176,6 +270,7 @@ public class Main {
                 System.out.println("Введите y: ");
                 double y = in.nextDouble();
                 double F = Math.sqrt(2+Math.pow(y,2)+(Math.pow(Math.sin(y+5),1.0/7)))/(Math.log(x+1)-Math.pow(y,3));
+                System.out.println(F);
             } // !r
             if (numb == 11) {
                 System.out.println("Введите a(!= 0): ");
@@ -231,7 +326,7 @@ public class Main {
                 }
             } // !r
             /*
-            2,7,9
+            2,9
             */
             System.out.print(" Вы хотите выйти? [1] - Да, [2] - Нет \n");
             cycle = in.nextInt();
