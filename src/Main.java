@@ -1,10 +1,12 @@
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int cycle;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("Выберите задачу [1-12]: ");
+            System.out.println("Выберите задачу [1-15]: ");
             int numb = in.nextInt();
             if (numb == 1) {
                 System.out.println("Введите x:");
@@ -37,27 +39,25 @@ public class Main {
                 int d = in.nextInt();
                 double sum = 0.0;
                 double minutes = t * 60 + mt;
-                double pr = s / 100 * 20; // 20%
-                double pr1 = s / 100 * 10; // 10%
                 for (int i = 0; i < dt; i++) {
                     System.out.println(sum);
                     minutes++;
                     if (minutes == 24 * 60) {
-                        ++d;
+                        d++;
                         minutes = 0;
                         if (d > 7) {
                             d = 1;
                         }
                     }
                     if ((d == 6) | (d == 7)) {
-                        if ((minutes > 21 * 60) | (minutes < 8 * 60)) {
-                            sum = sum + s - pr - pr1;
+                        if ((minutes >= 21 * 60) | (minutes <= 8 * 60)) {
+                        sum = sum+s*0.9*0.8;
                         } else {
-                            sum = sum + s - pr1;
+                            sum = sum + s*0.9;
                         }
                     } else {
-                        if ((minutes > 21 * 60) | (minutes < 8 * 60)) {
-                            sum = sum + s - pr;
+                        if ((minutes >= 21 * 60) | (minutes <= 8 * 60)) {
+                            sum = sum + s*0.8;
                         } else {
                             sum = sum + s;
                         }
@@ -100,11 +100,12 @@ public class Main {
                             goda[i] = b;
                             b = b-4;
                         }
-                        for (int year:goda) {                                                             // 45,41,37,33,29,25,21,17,13,9,5,1
+                        for (int year:goda) {                      // 45,41,37,33,29,25,21,17,13,9,5,1
                             if (year == god) {
                                 c = 1;
                                 break;
                             }
+                            System.out.println(c);
                         }
                         if ( c == 1 ) {
                             System.out.printf("%d год до нашей эры – високосный", god);
@@ -262,8 +263,24 @@ public class Main {
                 }
             } // !r
             if (numb == 9) {
-                System.out.println("CS");
-            } // CS
+                int[] mass;
+                mass = new int[10];
+                Random rand = new Random();
+                for (int i = 0; i < mass.length; i++) {
+                    mass[i] = rand.nextInt(50);
+                }
+                System.out.println("Неотсортированный массив:" + Arrays.toString(mass));
+                for (int i = 0; i < mass.length - 1; i++) {
+                    for (int j = 0; j < mass.length - i - 1; j++) {
+                        if (mass[j] > mass[j+1]) {
+                            int a = mass[j];
+                            mass [j] = mass[j+1];
+                            mass[j+1] = a;
+                        }
+                    }
+                }
+                System.out.println("Отсортированный массив:" + Arrays.toString(mass));
+            } // !r
             if (numb == 10) {
                 System.out.println("Введите x: ");
                 double x = in.nextDouble();
@@ -325,9 +342,63 @@ public class Main {
                     }
                 }
             } // !r
-            /*
-            2,9
-            */
+            if (numb == 13) {
+                System.out.println("Введите непустую последовательность ненулевых целых чисел. Программа заканчивается при вводе нуля.");
+                int a = in.nextInt();
+                int predA = a;
+                int smena = 0;
+                while (a != 0) {
+                    a = in.nextInt();
+                    if (predA*a < 0) {
+                        smena++;
+                    }
+                    predA = a;
+                }
+                System.out.printf("Знак поменялся: %d раз", smena);
+            } // !r
+            if (numb == 14) {
+                System.out.println("Введите произвольное количество вещественных чисел,за которыми следует –1000");
+                double a = in.nextDouble();
+                double srP;
+                double srM;
+                double sumP = 0;
+                double sumM = 0;
+                double countP = 0;
+                double countM = 0;
+                while (a != -1000) {
+                    if (a < 0) {
+                        sumM = sumM+a;
+                        countM++;
+                    }
+                    if (a > 0) {
+                        sumP = sumP+a;
+                        countP++;
+                    }
+                    a = in.nextDouble();
+                }
+                srP = sumP/countP;
+                srM = sumM/countM;
+                System.out.printf("Ср. Арифметическое отрицательных чисел = %f", srM);
+                System.out.printf(" Ср. Арифметическое положительных чисел = %f", srP);
+            } // !r
+            if (numb == 15) {
+                int[] mass;
+                mass = new int[10];
+                Random rand = new Random();
+                for (int i = 0; i < mass.length; i++) {
+                    mass[i] = rand.nextInt(10);
+                }
+                System.out.println("Массив: " + Arrays.toString(mass));
+                for (int i = 0; i < mass.length; i++) {
+                    for (int j = i + 1; j < mass.length; j++) {
+                        if (mass[i] == mass[j] ) {
+                            System.out.println("Числа не уникальны");
+                            return;
+                        }
+                    }
+                }
+                System.out.println("Все числа уникальны");
+            } // !r
             System.out.print(" Вы хотите выйти? [1] - Да, [2] - Нет \n");
             cycle = in.nextInt();
         } while (cycle == 2) ;
