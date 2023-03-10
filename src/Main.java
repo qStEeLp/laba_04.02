@@ -6,7 +6,7 @@ public class Main {
         int cycle;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("Выберите задачу [1-15]: ");
+            System.out.println("Выберите задачу [1-18]: ");
             int numb = in.nextInt();
             if (numb == 1) {
                 System.out.println("Введите x:");
@@ -51,13 +51,13 @@ public class Main {
                     }
                     if ((d == 6) | (d == 7)) {
                         if ((minutes >= 21 * 60) | (minutes <= 8 * 60)) {
-                        sum = sum+s*0.9*0.8;
+                            sum = sum + s * 0.9 * 0.8;
                         } else {
-                            sum = sum + s*0.9;
+                            sum = sum + s * 0.9;
                         }
                     } else {
                         if ((minutes >= 21 * 60) | (minutes <= 8 * 60)) {
-                            sum = sum + s*0.8;
+                            sum = sum + s * 0.8;
                         } else {
                             sum = sum + s;
                         }
@@ -98,19 +98,18 @@ public class Main {
                         int b = 45;
                         for (int i = 0; i < goda.length; i++) {
                             goda[i] = b;
-                            b = b-4;
+                            b = b - 4;
                         }
-                        for (int year:goda) {                      // 45,41,37,33,29,25,21,17,13,9,5,1
+                        for (int year : goda) {                      // 45,41,37,33,29,25,21,17,13,9,5,1
                             if (year == god) {
                                 c = 1;
                                 break;
                             }
                             System.out.println(c);
                         }
-                        if ( c == 1 ) {
+                        if (c == 1) {
                             System.out.printf("%d год до нашей эры – високосный", god);
-                        }
-                        else {
+                        } else {
                             System.out.printf("%d год до нашей эры – не високосный", god);
                         }
                     }
@@ -145,7 +144,7 @@ public class Main {
                     int del = a % 10;
                     if (del == 1) {
                         System.out.printf("%d " + "копе%s", a, ka);
-                    } else if ( del < 5 & del != 0) {
+                    } else if (del < 5 & del != 0) {
                         System.out.printf("%d " + "копе%s", a, ki);
                     } else {
                         System.out.printf("%d " + "копе%s", a, ek);
@@ -156,7 +155,7 @@ public class Main {
             if (numb == 6) {
                 System.out.println("Введите день года [1-365]: ");
                 int god = in.nextInt();
-                int ned = god%7;
+                int ned = god % 7;
                 System.out.println(ned);
                 switch (ned) {
                     case 1 -> System.out.println("Понедельник");
@@ -175,7 +174,7 @@ public class Main {
                 int day = in.nextInt();
                 switch (month) {
                     case 1:
-                        if (day <= 20 ) {
+                        if (day <= 20) {
                             System.out.println("Вы - Козерог");
                         } else {
                             System.out.println("Вы - Водолей");
@@ -195,68 +194,77 @@ public class Main {
                             System.out.println("Вы - Овен");
                         }
                         break;
-                    case 4: if (day <= 20) {
-                        System.out.println("Вы - Овен");
-                    } else {
-                        System.out.println("Вы - Телец");
-                    }
+                    case 4:
+                        if (day <= 20) {
+                            System.out.println("Вы - Овен");
+                        } else {
+                            System.out.println("Вы - Телец");
+                        }
                         break;
-                    case 5: if (day <= 20) {
-                        System.out.println("Вы - Телец");
-                    } else {
-                        System.out.println("Вы - Близнецы");
-                    }
+                    case 5:
+                        if (day <= 20) {
+                            System.out.println("Вы - Телец");
+                        } else {
+                            System.out.println("Вы - Близнецы");
+                        }
                         break;
-                    case 6: if (day <= 21) {
-                        System.out.println("Вы - Близнецы");
-                    } else {
-                        System.out.println("Вы - Рак");
-                    }
+                    case 6:
+                        if (day <= 21) {
+                            System.out.println("Вы - Близнецы");
+                        } else {
+                            System.out.println("Вы - Рак");
+                        }
                         break;
-                    case 7: if (day <= 21) {
-                        System.out.println("Вы - Рак");
-                    } else {
-                        System.out.println("Вы - Лев!!");
-                    }
+                    case 7:
+                        if (day <= 21) {
+                            System.out.println("Вы - Рак");
+                        } else {
+                            System.out.println("Вы - Лев!!");
+                        }
                         break;
-                    case 8: if (day <= 23) {
-                        System.out.println("Вы - Лев!!");
-                    } else {
-                        System.out.println("Вы - Дева");
-                    }
+                    case 8:
+                        if (day <= 23) {
+                            System.out.println("Вы - Лев!!");
+                        } else {
+                            System.out.println("Вы - Дева");
+                        }
                         break;
-                    case 9: if (day <= 23) {
-                        System.out.println("Вы - Дева");
-                    } else {
-                        System.out.println("Вы - Весы");
-                    }
+                    case 9:
+                        if (day <= 23) {
+                            System.out.println("Вы - Дева");
+                        } else {
+                            System.out.println("Вы - Весы");
+                        }
                         break;
-                    case 10: if (day <= 23) {
-                        System.out.println("Вы - Весы");
-                    } else {
-                        System.out.println("Вы - Скорпион");
-                    }
+                    case 10:
+                        if (day <= 23) {
+                            System.out.println("Вы - Весы");
+                        } else {
+                            System.out.println("Вы - Скорпион");
+                        }
                         break;
-                    case 11: if (day <= 22) {
-                        System.out.println("Вы = Скорпион");
-                    } else {
-                        System.out.println("Вы - Стрелец");
-                    }
+                    case 11:
+                        if (day <= 22) {
+                            System.out.println("Вы = Скорпион");
+                        } else {
+                            System.out.println("Вы - Стрелец");
+                        }
                         break;
-                    case 12: if (day <= 21) {
-                        System.out.println("Вы - Стрелец");
-                    } else {
-                        System.out.println("Вы - Козерог");
-                    }
+                    case 12:
+                        if (day <= 21) {
+                            System.out.println("Вы - Стрелец");
+                        } else {
+                            System.out.println("Вы - Козерог");
+                        }
                 }
             } // !r
             if (numb == 8) {
                 double m = 2;
                 double n = 1;
-                for (double a, b = 0, c; b < 1000;) {
-                    a = Math.pow(m,2)-Math.pow(n,2);
-                    b = 2*m*n;
-                    c = Math.pow(m,2)+Math.pow(n,2);
+                for (double a, b = 0, c; b < 1000; ) {
+                    a = Math.pow(m, 2) - Math.pow(n, 2);
+                    b = 2 * m * n;
+                    c = Math.pow(m, 2) + Math.pow(n, 2);
                     m++;
                     n++;
                     System.out.println(a + " , " + b + " , " + c);
@@ -272,10 +280,10 @@ public class Main {
                 System.out.println("Неотсортированный массив:" + Arrays.toString(mass));
                 for (int i = 0; i < mass.length - 1; i++) {
                     for (int j = 0; j < mass.length - i - 1; j++) {
-                        if (mass[j] > mass[j+1]) {
+                        if (mass[j] > mass[j + 1]) {
                             int a = mass[j];
-                            mass [j] = mass[j+1];
-                            mass[j+1] = a;
+                            mass[j] = mass[j + 1];
+                            mass[j + 1] = a;
                         }
                     }
                 }
@@ -286,13 +294,13 @@ public class Main {
                 double x = in.nextDouble();
                 System.out.println("Введите y: ");
                 double y = in.nextDouble();
-                double F = Math.sqrt(2+Math.pow(y,2)+(Math.pow(Math.sin(y+5),1.0/7)))/(Math.log(x+1)-Math.pow(y,3));
+                double F = Math.sqrt(2 + Math.pow(y, 2) + (Math.pow(Math.sin(y + 5), 1.0 / 7))) / (Math.log(x + 1) - Math.pow(y, 3));
                 System.out.println(F);
             } // !r
             if (numb == 11) {
                 System.out.println("Введите a(!= 0): ");
                 int a = in.nextInt();
-                if ( a == 0) {
+                if (a == 0) {
                     System.out.println("Противоречит условиям задачи");
                     break;
                 }
@@ -300,16 +308,16 @@ public class Main {
                 int b = in.nextInt();
                 System.out.println("Введите c: ");
                 int c = in.nextInt();
-                double D = Math.pow(b,2)-4*a*c;
+                double D = Math.pow(b, 2) - 4 * a * c;
                 if (D < 0) {
                     System.out.println("Вещественных корней нет");
 
                 } else if (D == 0) {
-                    double x = (b/(2.0*a))*(-1);
+                    double x = (b / (2.0 * a)) * (-1);
                     System.out.printf("Корень уравнения = %f", x);
                 } else {
-                    double x1 = ((b*(-1))+Math.sqrt(D))/(2*a);
-                    double x2 = ((b*(-1))-Math.sqrt(D))/(2*a);
+                    double x1 = ((b * (-1)) + Math.sqrt(D)) / (2 * a);
+                    double x2 = ((b * (-1)) - Math.sqrt(D)) / (2 * a);
                     System.out.printf("x1 = %f , x2 = %f", x1, x2);
                 }
             } // !r
@@ -320,7 +328,7 @@ public class Main {
                 System.out.println("Введите 2 числа a,b (a>b)");
                 int a = in.nextInt();
                 int b = in.nextInt();
-                int k = a/b;
+                int k = a / b;
                 if (k < 20) {
                     if (k == 1) {
                         System.out.printf("На отрезке а - %d " + "отрез%s b", k, ka);
@@ -335,7 +343,7 @@ public class Main {
                     int del = k % 10;
                     if (del == 1) {
                         System.out.printf("На отрезке а - %d " + "отрез%s b", k, ka);
-                    } else if ( del < 5 & del != 0) {
+                    } else if (del < 5 & del != 0) {
                         System.out.printf("На отрезке а - %d " + "отрез%s b", k, ki);
                     } else {
                         System.out.printf("На отрезке а - %d " + "отрез%s b", k, ek);
@@ -349,7 +357,7 @@ public class Main {
                 int smena = 0;
                 while (a != 0) {
                     a = in.nextInt();
-                    if (predA*a < 0) {
+                    if (predA * a < 0) {
                         smena++;
                     }
                     predA = a;
@@ -367,17 +375,17 @@ public class Main {
                 double countM = 0;
                 while (a != -1000) {
                     if (a < 0) {
-                        sumM = sumM+a;
+                        sumM = sumM + a;
                         countM++;
                     }
                     if (a > 0) {
-                        sumP = sumP+a;
+                        sumP = sumP + a;
                         countP++;
                     }
                     a = in.nextDouble();
                 }
-                srP = sumP/countP;
-                srM = sumM/countM;
+                srP = sumP / countP;
+                srM = sumM / countM;
                 System.out.printf("Ср. Арифметическое отрицательных чисел = %f", srM);
                 System.out.printf(" Ср. Арифметическое положительных чисел = %f", srP);
             } // !r
@@ -391,7 +399,7 @@ public class Main {
                 System.out.println("Массив: " + Arrays.toString(mass));
                 for (int i = 0; i < mass.length; i++) {
                     for (int j = i + 1; j < mass.length; j++) {
-                        if (mass[i] == mass[j] ) {
+                        if (mass[i] == mass[j]) {
                             System.out.println("Числа не уникальны");
                             return;
                         }
@@ -399,8 +407,86 @@ public class Main {
                 }
                 System.out.println("Все числа уникальны");
             } // !r
+            if (numb == 26) {
+                int[][] DvArray = new int[5][5];
+                Random rand = new Random();
+                for (int i = 0; i < DvArray.length; i++) {
+                    for (int j = 0; j < DvArray[0].length; j++) { // i - строки, j - столбцы
+                        DvArray[i][j] = rand.nextInt(2);
+                        System.out.print(" " + DvArray[i][j] + " ");
+                    }
+                    System.out.println();
+                }
+            } // !r
+            if (numb == 16) {
+                System.out.println("Введите n: ");
+                int n = in.nextInt();
+                int[][] array = new int[n][n];
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        if (i + j == n - 1) {
+                            array[i][j] = 1;
+                        } else if (i + j > n - 1) {
+                            array[i][j] = 2;
+                        } else {
+                            array[i][j] = 0;
+                        }
+                        System.out.print(" " + array[i][j] + " ");
+                    }
+                    System.out.println();
+                }
+            } // !r
+            if (numb == 17) {
+                System.out.println("Введите нечетное число n: ");
+                int n = in.nextInt();
+                String[][] array = new String[n][n];
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        array[i][j] = ".";
+                        System.out.print(" " + array[i][j] + " ");
+                    }
+                    System.out.println();
+                }
+                System.out.println("to ->");
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        if (j == i) {
+                            array[i][j] = "*";
+                        }
+                        if (j + i == n - 1) {
+                            array[i][j] = "*";
+                        }
+                        if (j == (n - 1) / 2) {
+                            array[i][j] = "*";
+                        }
+                        if (i == (n - 1) / 2) {
+                            array[i][j] = "*";
+                        }
+                        System.out.print(" " + array[i][j] + " ");
+                    }
+                    System.out.println();
+                }
+            } // !r
+            if (numb == 18) {
+                System.out.println("Введите n: ");
+                int n = in.nextInt();
+                int[][] array = new int[n][n];
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        int v = Math.abs(j - i);
+                        array[i][j] = v;
+                        System.out.print(" " + array[i][j] + " ");
+                    }
+                    System.out.println();
+                }
+            } // !r
             System.out.print(" Вы хотите выйти? [1] - Да, [2] - Нет \n");
             cycle = in.nextInt();
-        } while (cycle == 2) ;
+
+        } while (cycle == 2);
     }
 }
+
+
